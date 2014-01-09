@@ -10,7 +10,7 @@ module GrapeHasScope
 
   def self.included(base)
     base.class_eval do
-      class_attribute :scopes_configuration
+      attr_accessor :scopes_configuration
     end
   end
 
@@ -32,11 +32,11 @@ module GrapeHasScope
     options[:only]   = Array(options[:only])
     options[:except] = Array(options[:except])
 
-    self.class.scopes_configuration = (self.class.scopes_configuration || {}).dup
+    @scopes_configuration = (@scopes_configuration || {}).dup
 
     scopes.each do |scope|
-      self.class.scopes_configuration[scope] ||= { :as => scope, :type => :default, :block => block }
-      self.class.scopes_configuration[scope] = self.class.scopes_configuration[scope].merge(options)
+      @scopes_configuration[scope] ||= { :as => scope, :type => :default, :block => block }
+      @scopes_configuration[scope] = @scopes_configuration[scope].merge(options)
     end
   end
 
@@ -54,7 +54,7 @@ module GrapeHasScope
   def apply_scopes(target, hash=params)
     return target unless scopes_configuration
 
-    self.class.scopes_configuration.each do |scope, options|
+    @scopes_configuration.each do |scope, options|
       next unless apply_scope_to_action?(options)
       key = options[:as]
 

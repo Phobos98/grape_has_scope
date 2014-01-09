@@ -1,0 +1,3 @@
+= has_scope implementation to use with Grape API
+
+In a hurry, will write the instructions later :))

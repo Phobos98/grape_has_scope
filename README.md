@@ -26,6 +26,8 @@ class Posts < Grape::API
 
   before do
     has_scope :by_author
+    has_scope :page
+    has_scope :per_page
   end
 
   resource :posts do
@@ -37,7 +39,7 @@ class Posts < Grape::API
       optional :per_page, type: Integer, default: 30, desc: "Number of elements per page (default: 30)"
     end
     get '' do
-      apply_scopes(Post).page(params[:page]).per_page(params[:per_page])
+      apply_scopes(Post)
     end
   end
 end

@@ -37,7 +37,7 @@ class Posts < Grape::API
       optional :per_page, type: Integer, default: 30, desc: "Number of elements per page (default: 30)"
     end
     get '' do
-      apply_scopes(Post).page(1).per_page(10)
+      apply_scopes(Post).page(params[:page]).per_page(params[:per_page])
     end
   end
 end

@@ -45,4 +45,4 @@ end
 
 ## Tests
 
-The tests were just copied from the original gem, so they will not work, and I did npt yet have time to update them :) So feel free to implement them and contribute, if you wish
+The tests were just copied from the original gem, so they will not work, and I did not yet have time to update them :) So feel free to implement them and contribute, if you wish

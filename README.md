@@ -1,4 +1,4 @@
-= grape_has_scope
+# grape_has_scope
 
 This is a Plataformatec's gem [has_scope](https://github.com/plataformatec/has_scope) implementation to use with [Grape API](https://github.com/intridea/grape)
 
